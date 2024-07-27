@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h2>Join Our Email List</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Subscribe</button>
+</form>
+
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
-from .forms import PrepForm, ReviewForm
+from .forms import PrepForm, ReviewForm, EmailSignupForm
 from openai import OpenAI
 import os
 from dotenv import load_dotenv
@@ -71,3 +71,15 @@ def prep(request):
         
     return render(request, "prep.html", {"form" : form})
 
+def email_signup(request):
+    if request.method == "POST":
+        form = EmailSignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+        else:
+            pass
+    else:
+        form = EmailSignupForm() 
+
+    return render(request, "email_signup.html", {"form": form})
