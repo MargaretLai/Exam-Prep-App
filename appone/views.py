@@ -6,3 +6,6 @@ def home(request):
 
 def review(request):
     return render(request, "review.html")
+
+def prep(request):
+    return render(request, "prep.html")
