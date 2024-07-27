@@ -61,9 +61,14 @@ def prep(request):
 
             # Render response to user
             questions_and_answers = completion.choices[0].message.content
-            questions_and_answers = questions_and_answers.split("\n\n")            
-            questions = questions_and_answers[::2]
-            answers = questions_and_answers[1::2]
+            questions_and_answers = questions_and_answers.split("\n")       
+            questions = []
+            answers = []
+            for item in questions_and_answers:
+                if "Question" in item:
+                    questions.append(item)
+                elif "Answer" in item:
+                    answers.append(item)
 
             return render(request, "prep.html", {"form" : form, "questions" : questions, "answers" : answers})
     else:
