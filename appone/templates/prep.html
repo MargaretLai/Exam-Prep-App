@@ -8,4 +8,30 @@
     {{ form.as_p }}
     <button class="btn btn-primary" type="submit">Submit</button>
 </form>
+
+<!--Display questions-->
+{% if questions %}
+<h2>Questions:</h2>
+<ul>
+    {% for question in questions %}
+    <li>{{ question }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No question found yet.</p>
+{% endif %}
+
+<!--Display answers to questions-->
+{% if answers %}
+<h2>Answers:</h2>
+<ul>
+    {% for answer in answers %}
+    <li>{{ answer }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No answer found yet.</p>
+{% endif %}
+
+
 {% endblock %}

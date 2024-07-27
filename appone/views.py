@@ -34,6 +34,7 @@ def review(request):
             # Render response to user
             key_points = completion.choices[0].message.content
             key_points = key_points.split("\n")
+
             return render(request, "review.html", {"form" : form, "key_points" : key_points})
     else:
         form = ReviewForm()
@@ -58,10 +59,13 @@ def prep(request):
                 ]
             )
 
-            print(completion.choices[0].message)
+            # Render response to user
+            questions_and_answers = completion.choices[0].message.content
+            questions_and_answers = questions_and_answers.split("\n\n")            
+            questions = questions_and_answers[::2]
+            answers = questions_and_answers[1::2]
 
-
-            return redirect("prep") # Return to the same page rn
+            return render(request, "prep.html", {"form" : form, "questions" : questions, "answers" : answers})
     else:
         form = PrepForm()
         
