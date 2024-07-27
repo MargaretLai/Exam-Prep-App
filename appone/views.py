@@ -31,13 +31,14 @@ def review(request):
                 ]
             )
 
-            print(completion.choices[0].message)
-
-            return redirect("review") # Return to the same page rn
+            # Render response to user
+            key_points = completion.choices[0].message.content
+            key_points = key_points.split("\n")
+            return render(request, "review.html", {"form" : form, "key_points" : key_points})
     else:
         form = ReviewForm()
+        return render(request, "review.html", {"form" : form})
 
-    return render(request, "review.html", {"form" : form})
 
 def prep(request):
     if request.method == "POST":

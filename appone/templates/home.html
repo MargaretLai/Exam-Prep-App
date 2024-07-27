@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h1>This is main section</h1>
-<button type="button" class="btn btn-primary" onclick="location.href='/review'">Review Mode</button>
-<button type="button" class="btn btn-success" onclick="location.href='/prep'">Exam Mode</button>
+<div class="landing-container">
+    <div class="left">
+        <h1>Exam Max</h1>
+        <p>Maximize student success through AI-enhanced exam preparation.</p>
+        <button type="button" class="btn btn-primary" onclick="location.href='/review'">Review Mode</button>
+        <button type="button" class="btn btn-success" onclick="location.href='/prep'">Exam Mode</button>
+    </div>
+    <div class="right">
+        <img id="landing-img" src="static/img/landing.png" alt="Landing page comic">
+    </div>
+</div>
+
 {% endblock %}

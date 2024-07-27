@@ -1,3 +1,28 @@
 body {
-    background-color: aquamarine;
+    margin: 0;
+    background-color: white;
+}
+
+nav {
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.landing-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+
+.left {
+    min-width: 400px;
+}
+
+.left h1{
+    
+}
+
+#landing-img {
+    width: 1000px;
 }

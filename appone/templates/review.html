@@ -8,4 +8,16 @@
     {{ form.as_p }}
     <button class="btn btn-primary" type="submit">Submit</button>
 </form>
+
+{% if key_points %}
+<h2>Key Points:</h2>
+<ul>
+    {% for point in key_points %}
+    <li>{{ point }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No key points found yet.</p>
+{% endif %}
+
 {% endblock %}
