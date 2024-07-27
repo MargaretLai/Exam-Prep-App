@@ -33,11 +33,12 @@ nav {
     margin-top: 100px;
 }
 
-.review-container p {
+.review-container p, .exam-container p {
     margin-top: 20px;
 }
 
-.review-container button {
+
+.review-container button, .exam-container button {
     width: 100px;
     padding: 10px;
     border-radius: 10px;
@@ -47,7 +48,7 @@ nav {
     margin-top: 30px;
 }
 
-.review-container ul {
+.review-container ul, .exam-container ul{
     margin-top: 10px;
     list-style-type: none;
 }
