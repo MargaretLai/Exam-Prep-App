@@ -1,23 +1,30 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h1>This is review componenet</h1>
+<div class="container review-container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1>Review</h1>
+            <p>Enter the subject/topic you want to review below. Key points will be generated after submition. <br>It may take a few seconds to load.</p>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-primary" type="submit">Submit</button>
-</form>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
 
-{% if key_points %}
-<h2>Key Points:</h2>
-<ul>
-    {% for point in key_points %}
-    <li>{{ point }}</li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No key points found yet.</p>
-{% endif %}
-
+            {% if key_points %}
+            <br><hr>
+            <h1>Key Points</h1>
+            <ul>
+                {% for point in key_points %}
+                <li>{{ point }}</li>
+                {% endfor %}
+            </ul>
+            <button class="btn btn-success" type="submit" onclick="location.href='/prep'">Exam</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='/'">Home</button>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}
